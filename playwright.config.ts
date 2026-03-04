@@ -1,13 +1,15 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv'
+import path from 'path';
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '.env.test') });
 
 export default defineConfig({
-
+  globalSetup: './global-setup.ts',
   use: {
-    baseURL: process.env.BASE_URL|| 'https://parabank.parasoft.com/parabank/index.htm',
-    headless: true,
+    baseURL: process.env.BASE_URL || 'https://parabank.parasoft.com/parabank/index.htm',
+    headless: false,
+    storageState: 'storageState.json',
   },
 
   testDir: './tests',

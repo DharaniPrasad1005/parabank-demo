@@ -8,3 +8,6 @@ node_modules/
 /playwright/.auth/
 /parabank-test-design.pdf
 .env
+.env.test
+storageState.json
+allure-report/
